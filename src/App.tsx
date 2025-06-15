@@ -13,17 +13,16 @@ import ExperienceSection from '@/components/sections/ExperienceSection';
 import AchievementsSection from '@/components/sections/AchievementsSection';
 import EducationSection from '@/components/sections/EducationSection';
 import AdditionalInfoSection from '@/components/sections/AdditionalInfoSection';
-import ThemeToggle from '@/components/common/ThemeToggle';
 
 // Data and types
 import { resumeData } from '@/data/resumeData';
-import type { ResumeData } from '@/data/types';
+
 
 // Styles
 import './styles/globals.css';
 
 const App: React.FC = () => {
-  const { theme, toggleTheme } = useTheme(); // Use the useTheme hook to get the theme and toggle function
+  const { theme } = useTheme(); // Use the useTheme hook to get the theme and toggle function
   const [isLoading, setIsLoading] = useState(true);
   const { visibleItems, registerElement } = useIntersectionObserver();
 

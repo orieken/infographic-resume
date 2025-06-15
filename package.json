@@ -16,6 +16,12 @@
     "test:components": "vitest run __tests__/components",
     "test:hooks": "vitest run __tests__/hooks",
     "test:data": "vitest run __tests__/data",
+    "clean": "pnpm clean:dist && pnpm clean:ts && pnpm clean:cache",
+    "clean:dist": "rm -rf dist",
+    "clean:ts": "find src -name '*.d.ts' -delete 2>/dev/null || true && rm -rf node_modules/.tmp",
+    "clean:cache": "rm -rf .vite node_modules/.cache",
+    "clean:build": "pnpm clean:dist && pnpm clean:ts && pnpm clean:cache",
+    "prebuild": "pnpm clean:build",
     "build:analyze": "npm run build && npx vite-bundle-analyzer dist/assets/*.js",
     "deploy": "npm run build && npm run preview"
   },
