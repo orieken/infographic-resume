@@ -1,9 +1,5 @@
-// src/App.tsx
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Mail, Phone, MapPin, Code, BarChart3, Star, Zap, Users, Trophy, GraduationCap, Globe, Shield } from 'lucide-react';
-
-// Custom hooks
-import { useCountUp } from '@/hooks/useCountUp';
+import { useTheme } from '@/hooks/useTheme'; // Use the custom useTheme hook
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 // Components
@@ -27,36 +23,21 @@ import type { ResumeData } from '@/data/types';
 import './styles/globals.css';
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const { theme, toggleTheme } = useTheme(); // Use the useTheme hook to get the theme and toggle function
   const [isLoading, setIsLoading] = useState(true);
   const { visibleItems, registerElement } = useIntersectionObserver();
 
-  // Initialize app
+  // Simulate loading time
   useEffect(() => {
-    // Simulate loading time
     const timer = setTimeout(() => setIsLoading(false), 1500);
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    }
-
     return () => clearTimeout(timer);
   }, []);
 
-  // Theme toggle handler
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-  };
-
-  // Apply theme class to document
+  // Debugging: Log the theme and theme changes
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark');
+    console.log('Current theme:', theme); // Log the current theme whenever it changes
+    console.log('Toggling dark mode class');
+    document.documentElement.classList.toggle('dark', theme === 'dark'); // Ensure the dark class is toggled on the html element
   }, [theme]);
 
   if (isLoading) {
@@ -68,7 +49,7 @@ const App: React.FC = () => {
       <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800 min-h-screen">
 
         {/* Theme Toggle */}
-        <ThemeToggle theme={theme} onToggle={toggleTheme} />
+        {/*<ThemeToggle theme={theme} onToggle={toggleTheme} />*/}
 
         <div className="max-w-6xl mx-auto bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden">
 
@@ -144,4 +125,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-

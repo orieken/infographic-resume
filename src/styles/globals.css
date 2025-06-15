@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @layer base {
     html {
         scroll-behavior: smooth;
@@ -133,6 +132,28 @@
     }
 }
 
+/* Dark theme specific colors */
+html.dark {
+    --border: 210, 20%, 20%; /* Dark mode border color */
+    --input: 210, 20%, 25%; /* Dark mode input color */
+    --ring: 210, 20%, 35%; /* Dark mode ring color */
+    --background: 210, 20%, 10%; /* Dark mode background color */
+    --foreground: 210, 20%, 95%; /* Dark mode foreground color */
+    --primary: 210, 100%, 60%; /* Dark mode primary color */
+    --primary-foreground: 210, 20%, 90%; /* Dark mode primary foreground color */
+    --secondary: 120, 100%, 55%; /* Dark mode secondary color */
+    --secondary-foreground: 120, 20%, 90%; /* Dark mode secondary foreground color */
+    --destructive: 0, 100%, 60%; /* Dark mode destructive color */
+    --destructive-foreground: 0, 20%, 90%; /* Dark mode destructive foreground color */
+    --muted: 210, 20%, 60%; /* Dark mode muted color */
+    --accent: 180, 100%, 60%; /* Dark mode accent color */
+    --accent-foreground: 180, 20%, 95%; /* Dark mode accent foreground color */
+    --popover: 210, 10%, 90%; /* Dark mode popover color */
+    --popover-foreground: 210, 20%, 10%; /* Dark mode popover foreground color */
+    --card: 210, 20%, 15%; /* Dark mode card color */
+    --card-foreground: 210, 20%, 90%; /* Dark mode card foreground color */
+}
+
 /* Print styles */
 @media print {
     .no-print {
@@ -157,24 +178,24 @@
     }
 }
 
-/* Custom properties for colors (make sure they're defined in your global styles) */
+/* Custom properties for colors */
 :root {
-    --border: 210, 20%, 90%; /* Example value for border color */
-    --input: 210, 20%, 95%;
-    --ring: 210, 20%, 85%;
-    --background: 210, 20%, 20%;
-    --foreground: 210, 20%, 80%;
-    --primary: 210, 100%, 50%;
-    --primary-foreground: 210, 20%, 95%;
-    --secondary: 120, 100%, 50%;
-    --secondary-foreground: 120, 20%, 95%;
-    --destructive: 0, 100%, 50%;
-    --destructive-foreground: 0, 20%, 95%;
-    --muted: 210, 20%, 80%;
-    --accent: 180, 100%, 50%;
-    --accent-foreground: 180, 20%, 95%;
-    --popover: 210, 10%, 95%;
-    --popover-foreground: 210, 20%, 20%;
-    --card: 210, 20%, 90%;
-    --card-foreground: 210, 20%, 20%;
+    --border: 210, 20%, 90%; /* Default value for border color */
+    --input: 210, 20%, 95%; /* Default value for input color */
+    --ring: 210, 20%, 85%; /* Default value for ring color */
+    --background: 210, 20%, 20%; /* Default background color */
+    --foreground: 210, 20%, 80%; /* Default foreground color */
+    --primary: 210, 100%, 50%; /* Default primary color */
+    --primary-foreground: 210, 20%, 95%; /* Default primary foreground color */
+    --secondary: 120, 100%, 50%; /* Default secondary color */
+    --secondary-foreground: 120, 20%, 95%; /* Default secondary foreground color */
+    --destructive: 0, 100%, 50%; /* Default destructive color */
+    --destructive-foreground: 0, 20%, 95%; /* Default destructive foreground color */
+    --muted: 210, 20%, 80%; /* Default muted color */
+    --accent: 180, 100%, 50%; /* Default accent color */
+    --accent-foreground: 180, 20%, 95%; /* Default accent foreground color */
+    --popover: 210, 10%, 95%; /* Default popover color */
+    --popover-foreground: 210, 20%, 20%; /* Default popover foreground color */
+    --card: 210, 20%, 90%; /* Default card color */
+    --card-foreground: 210, 20%, 20%; /* Default card foreground color */
 }
